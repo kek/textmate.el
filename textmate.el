@@ -66,7 +66,7 @@
 
 ;;; Minor mode
 
-(defvar *textmate-gf-exclude* "/\\/\\.|(\\/|^)(\\.|vendor|fixtures|tmp|log|build)($|\\/)|(\\.xcodeproj|\\.nib|\\.framework|\\.app|\\.pbproj|\\.pbxproj|\\.xcode|\\.xcodeproj|\\.bundle|\\.pyc)$"
+(defvar *textmate-gf-exclude* "/\\/\\.|(\\/|^)(\\.|vendor|.git|fixtures|tmp|log|build)($|\\/)|(\\.xcodeproj|\\.nib|\\.framework|\\.app|\\.pbproj|\\.pbxproj|\\.xcode|\\.xcodeproj|\\.bundle|\\.pyc|\\.html)$"
   "Regexp of files to exclude from `textmate-goto-file'.")
 
 (defvar *textmate-project-roots*
@@ -147,16 +147,18 @@ the project root.")
 	   (define-key map [(control c)(control t)] 'textmate-clear-cache)
 	   (define-key map [(control c)(control a)] 'align)
 	   (define-key map [(control tab)] 'textmate-shift-right)
-	   (define-key map [(control shift tab)] 'textmate-shift-left)
+	   (define-key map [(control meta tab)] 'textmate-shift-left)
 	   (define-key map [(control c)(control k)] 'comment-or-uncomment-region-or-line)
 	   (define-key map [(meta t)] 'textmate-goto-file)
 	   (define-key map [(meta shift l)] 'textmate-select-line)
 	   (define-key map [(meta shift t)] 'textmate-goto-symbol)
-     (define-key map [(alt up)] 'textmate-column-up)
-     (define-key map [(alt down)] 'textmate-column-down)
-     (define-key map [(alt shift up)] 'textmate-column-up-with-select)
-     (define-key map [(alt shift down)] 'textmate-column-down-with-select)))
+	   (define-key map [(alt up)] 'textmate-column-up)
+	   (define-key map [(alt down)] 'textmate-column-down)
+	   (define-key map [(alt shift up)] 'textmate-column-up-with-select)
+	   (define-key map [(alt shift down)] 'textmate-column-down-with-select)))
 	  map))
+
+
 
 (defvar *textmate-project-root* nil
   "Used internally to cache the project root.")
